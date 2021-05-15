@@ -1,0 +1,46 @@
+<h1>Make a website</h1>
+<h2>Overview</h2>
+<ul>
+<li>Make a S3 bucket</li>
+<li>Make it public</li>
+<li>Use Bucket website endpoint to see the website</li>
+</ul>
+<h2>Bucket structure</h2>
+<ul>
+<li>Put index.html as your home page</li>
+<li>If you create a folder structure in your bucket, you must have an index document at each level.</li>
+</ul>
+<h2>Error document</h2>
+<ul>
+<li>By default, Amazon S3 returns a predefined HTML message, 403 Forbidden response.</li>
+</ul>
+<h2>Website access permission</h2>
+<ul>
+<li>Turn off Block all public access</li>
+<li>Add a bucket policy</li>
+</ul>
+<h2>Server access logging</h2>
+<ul>
+<li>Give you records for the requests that are made to your bucket.</li>
+<li>Amazon S3 writes website access logs to your log bucket every 2 hours.</li>
+</ul>
+<h2>CloudFront to speed up website</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html</a></li>
+</ul>
+<h2>Test website</h2>
+<ul>
+<li>Use Bucket website endpoint, such as, which you can find in Static website hosting in Properties in the S3 bucket.&nbsp;</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html</a></li>
+<li>Server access logging</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html</a></li>
+</ul>
+<li>Register a new domain</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html</a></li>
+</ul>
+</ul>
