@@ -1,0 +1,52 @@
+<h1>AWS root identity and administrator</h1>
+<h2>Root identity (or root account credentials)</h2>
+<ul>
+<li>The combination of your email address and password.</li>
+<li>AWS recommends you don&rsquo;t use your root account credentials for everyday use.</li>
+<li>Instead you should create new credentials, which means accessing AWS by a special URL and the credentials for the IAM user.</li>
+</ul>
+<h2>Create an administrator user for yourself</h2>
+<ul>
+<li>Make a user, Administrator.</li>
+<li>Make a group, Administrators.</li>
+<ul>
+<li>This group has an AdministratorAccess policy.</li>
+</ul>
+</ul>
+<h2>Sign in with account ID</h2>
+<ul>
+<li>Go to <a href="https://your_account_id.signin.aws.amazon.com/console/" target="_blank" rel="noopener">https://your_account_id.signin.aws.amazon.com/console/</a></li>
+<ul>
+<li>Replace your_account_id with your 12 digits account id, which appears in AWS console top right after clicking your account information.</li>
+</ul>
+<li>Username: Administrator, password: what you created.</li>
+</ul>
+<h2>Create alias to hide account ID</h2>
+<ul>
+<li>IAM, Dashboard, click Customize next to Sign-in URL, type the account alias</li>
+</ul>
+<h2>Sign in with account alias</h2>
+<ul>
+<li>Go to <a href="https://your_account_alias.signin.aws.amazon.com/console/" target="_blank" rel="noopener">https://your_account_alias.signin.aws.amazon.com/console/</a></li>
+<ul>
+<li>Replace your_account_alias with your newly created account alias</li>
+</ul>
+<li>Account ID or account alias: account alias you created, Username: Administrator, password: what you created.</li>
+</ul>
+<h2>Reset password of a user</h2>
+<ul>
+<li>Go to Security credentials tab of the user.</li>
+<li>Click manage next to Console password.</li>
+<li>Set password, Custom password, type a new password</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>Create your first IAM admin user and user group</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html</a></li>
+</ul>
+<li>Reset user password</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html#id_credentials_passwords_admin-change-user_console" target="_blank" rel="noopener">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html#id_credentials_passwords_admin-change-user_console</a></li>
+</ul>
+</ul>
