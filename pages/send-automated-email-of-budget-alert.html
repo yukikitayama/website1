@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Send automated email of budget alert</h1>
+<h2>Idea</h2>
+<ul>
+<li>By default, only the root user receives an email at the beginning of a month about the payment of the cost used the last month.</li>
+<li>To detect the unexpected cost jump as soon as possible, set a budget and send an alert, for example, to an email address.</li>
+</ul>
+<h2>Steps</h2>
+<ul>
+<li>Sign in to AWS console by a user with access to billing</li>
+<li>Go to AWS Budgets</li>
+<li>Click Create a budget</li>
+<li>Choose Cost budget, Click Set your budget</li>
+<li>Name</li>
+<ul>
+<li>Monthly AWS budget</li>
+</ul>
+<li>Period</li>
+<ul>
+<li>Monthly</li>
+</ul>
+<li>Budget effective dates</li>
+<ul>
+<li>Recurring budget</li>
+<li>Start month, this month</li>
+</ul>
+<li>Budgeted amount</li>
+<ul>
+<li>For example, $100</li>
+</ul>
+<li>Click Configure thresholds</li>
+<li>Thresholds</li>
+<ul>
+<li>For example, threshold 1, actual cost: 50% of budget amount, email recipients: your email</li>
+<li>Threshold 2, actual cost 100% of budget amount, email recipients: your email</li>
+</ul>
+<li>Click Confirm budget</li>
+<li>Click Create</li>
+</ul>
+<h2>Test</h2>
+<ul>
+<li>Test whether we can actually receive an alert.</li>
+<li>Go to AWS Budgets</li>
+<li>Click the budget name we just made</li>
+<li>Click Edit Budget</li>
+<li>Click Configure thresholds</li>
+<li>New threshold</li>
+<ul>
+<li>Actual cost, set a small dollar amount for absolute value which is above your spending in the current month to Alert threshold.</li>
+</ul>
+<li>Email recipients</li>
+<ul>
+<li>Enter the same email address.</li>
+</ul>
+<li>Click Confirm budget</li>
+<li>Click Done</li>
+<li>The email will not come quickly even if the AWS already exceeds the threshold. Probably several hours later.</li>
+<li>When you receive an AWS Budgets email, we confirm that AWS budget alert is working.</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>Creating a budget</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-create.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-create.html</a></li>
+</ul>
+</ul>
+</body>
+</html>

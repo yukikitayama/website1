@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Serverless automation with Lambda and EventBridge</h1>
+<h2>Idea</h2>
+<ul>
+<li>Automation can be done easily and cheaply.</li>
+<li>Serverless means you only need to upload a program and set a schedule, and AWS takes care of maintaining the system running your program.</li>
+<li>Lambda is for you to upload program that you want to run, and EventBridge is to set schedule running the program</li>
+</ul>
+<h2>Lambda</h2>
+<ul>
+<li>Upload Python program and Python packages together in a zip file</li>
+</ul>
+<h2>EventBridge</h2>
+<ul>
+<li>EventBridge can trigger AWS Lambda by rule type: schedule expression in cron style.</li>
+<li>Go to EventBridge, Create rule</li>
+<li>Define pattern</li>
+<ul>
+<li>Schedule</li>
+</ul>
+<li>Select event bus</li>
+<ul>
+<li>AWS default event bus</li>
+</ul>
+<li>Select targets</li>
+<ul>
+<li>Target: Lambda function</li>
+<li>Function: Select your function</li>
+</ul>
+</ul>
+<h2>Cost</h2>
+<ul>
+<li>Lambda</li>
+<ul>
+<li>How many times you run a function</li>
+<li>How long the function takes</li>
+<li>How much memory is allocated to the function</li>
+</ul>
+<li>EventBridge</li>
+<ul>
+<li>It&rsquo;s free for EventBridge to trigger Lambda</li>
+</ul>
+<li>Example</li>
+<ul>
+<li>Automating a Lambda function which runs daily, and spends 1 minute and 1GB memory is $0.03 per month.</li>
+</ul>
+</ul>
+<h2>Cron expression</h2>
+<ul>
+<li>The cron expression of AWS EventBridge is a bit different from Linux cron job expression.</li>
+<li>e.g. every 5 minutes</li>
+<ul>
+<li>EventBridge: cron(0/5 * * * ? *)</li>
+<li>Linux cron job: */5 * * * *</li>
+</ul>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>Tutorial: Schedule AWS Lambda functions using EventBridge</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-run-lambda-schedule.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-run-lambda-schedule.html</a></li>
+</ul>
+<li>EventBridge cron expression</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions" target="_blank" rel="noopener">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions</a></li>
+</ul>
+<li>AWS Lambda pricing</li>
+<ul>
+<li><a href="https://aws.amazon.com/lambda/pricing/" target="_blank" rel="noopener">https://aws.amazon.com/lambda/pricing/</a></li>
+</ul>
+<li>AWS EventBridge pricing</li>
+<ul>
+<li><a href="https://aws.amazon.com/eventbridge/pricing/" target="_blank" rel="noopener">https://aws.amazon.com/eventbridge/pricing/</a></li>
+</ul>
+<li>AWS EventBridge pricing for cron events</li>
+<ul>
+<li><a href="https://stackoverflow.com/questions/59022523/aws-eventbridge-pricing-for-cron-events" target="_blank" rel="noopener">https://stackoverflow.com/questions/59022523/aws-eventbridge-pricing-for-cron-events</a></li>
+</ul>
+</ul>
+</body>
+</html>

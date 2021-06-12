@@ -1,0 +1,49 @@
+body {
+    font-family: Calibri;
+    margin: 0;
+    padding: 0 5%;
+    color: #231F20;
+    /*border: solid;*/
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 3px solid #81D8D0;
+    /*border: solid;*/
+}
+
+h2 {
+    /*text-align: center;*/
+    border-bottom: 1px solid #81D8D0;
+    /*border: solid;*/
+}
+
+ul {
+    /*border: solid;*/
+}
+
+.youtubeContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+section iframe {
+    border: none;
+    /*margin: 0 auto;*/
+    /*display: block;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 80%;
+    width: 80%;
+}
+
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}

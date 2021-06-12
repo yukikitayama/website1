@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Embed YouTube in web pages</h1>
+<h2>Steps</h2>
+<ul>
+<li>Get URL of a YouTube video</li>
+<li>Use &lt;iframe&gt; with src=&rdquo;YouTube URL&rdquo;</li>
+<li>You need to modify YouTube URL as following if it doesn&rsquo;t display</li>
+<ul>
+<li><a href="https://www.youtube.com/embed/" target="_blank" rel="noopener">https://www.youtube.com/embed/</a> + Unique YouTube ID usually an ending part.</li>
+<li>If your URL is like <a href="http://www.youtube.com/watch?=" target="_blank" rel="noopener">www.youtube.com/watch?v=</a> + Unique YouTube ID or youtu.be/ + Unique YouTube ID, probably you need to modify.</li>
+</ul>
+</ul>
+<h2>Style</h2>
+<p>HTML</p>
+<p>&lt;section class="youtubeContainer"&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;iframe src="https://www.youtube.com/embed/9fmXC3lyDCw"&gt;&lt;/iframe&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>CSS</p>
+<p>.youtubeContainer {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;position: relative;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;padding-top: 56.25%;</p>
+<p>}</p>
+<p>section iframe {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;border: none;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/*margin: 0 auto;*/</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/*display: block;*/</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;position: absolute;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;top: 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;left: 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;bottom: 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;right: 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;height: 80%;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;width: 80%;</p>
+<p>}</p>
+<h2>Resource</h2>
+<ul>
+<li>HTML YouTube videos</li>
+<ul>
+<li><a href="https://www.w3schools.com/html/html_youtube.asp" target="_blank" rel="noopener">https://www.w3schools.com/html/html_youtube.asp</a></li>
+</ul>
+<li>How to create responsive iframes</li>
+<ul>
+<li><a href="https://www.w3schools.com/howto/howto_css_responsive_iframes.asp" target="_blank" rel="noopener">https://www.w3schools.com/howto/howto_css_responsive_iframes.asp</a></li>
+</ul>
+</ul>
+</body>
+</html>

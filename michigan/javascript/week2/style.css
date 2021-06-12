@@ -1,0 +1,14 @@
+.closed {
+    display: none;
+}
+
+.open {
+    display: block;
+}
+
+#demo2 {
+    color: white;
+    background-color: #7F7F7F;
+    padding: 10px;
+    font-size: 120%;
+}

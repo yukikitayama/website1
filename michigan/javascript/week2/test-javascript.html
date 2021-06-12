@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="function.js"></script>
+    <title>Title</title>
+</head>
+<body onload="message('LOAD')" onresize="message('RESIZE')">
+    <p onclick="message('CLICK')">It it possible to call functions based on Events.</p>
+    <p id="output"></p>
+    <button type="button" onclick="displayDate()">Display Date</button>
+    <p id="demo">This is a paragraph.</p>
+    <h1>Modify te DOM</h1>
+    <button onclick="document.getElementById('stuff').innerHTML = 'Clicked First Button';">First</button>
+    <button onclick="document.getElementById('stuff').innerHTML = 'Clicked Second Button';">Second</button>
+    <p id="stuff">This will change.</p>
+    <h2>Changing the Style</h2>
+    <button type="button" onclick="openMe()">Open!</button>
+    <button type="button" onclick="closeMe()">Close!</button>
+    <p id="demo2">Extra details...You can open and close this paragraph using the buttons above.</p>
+    <!--    <script>-->
+<!--    alert("Hello World");-->
+<!--  var name = prompt("What is your name?");-->
+<!--  document.write(name);-->
+<!--  var date = Date();-->
+<!--  document.write(date);-->
+<!--  var location = window.location;-->
+<!--  document.write(location);-->
+<!--    var name;-->
+<!--    name = prompt("What is your name?");-->
+<!--    document.write(name);-->
+<!--    document.write("<h1>" + name + "</h1>");-->
+<!--    document.write(name + 7 + "<br>");-->
+<!--    document.write(document.title + "<br>");-->
+<!--    var pars = document.getElementsByTagName('p');-->
+<!--    document.write(pars + "<br/>");-->
+<!--    document.write(pars.length);-->
+<!--</script>-->
+<noscript>
+    Your browser doesn't support or has disabled JavaScript
+</noscript>
+</body>
+</html>

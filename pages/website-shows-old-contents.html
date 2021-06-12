@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Troubleshoot website still shows old contents after updating contents</h1>
+<h2>Issue</h2>
+<ul>
+<li>Even if you updated the contents by modifying html files, your website still shows the previous old contents. You are using S3 to hold files and using CloudFront to distribute your contents.</li>
+<li>By default, CloudFront sets that each file expires after 24 hours. So if you visit the website the next day, you will see the new contents.</li>
+</ul>
+<h2>CloudFront</h2>
+<ul>
+<li>When you update an existing file in the origin of CloudFront with the same file name, an edge location won&rsquo;t get the new version until the followings occur</li>
+<ul>
+<li>The old version of the file in the cache expires. By default, CloudFront caches files for 24 hours.</li>
+<li>There is a user request for the file at the edge location.</li>
+</ul>
+</ul>
+<h2>How to change the default behavior</h2>
+<ul>
+<li>What you have to do is to change <strong>cache behavior settings</strong>. For example, we want to change 24 hours to 1 hour.</li>
+<li>Create cache policy</li>
+<ul>
+<li>In TTL settings, sets Default TTL to be 3600 (seconds), meaning 1 hour.</li>
+</ul>
+<li>Create behavior</li>
+<ul>
+<li>Path pattern</li>
+<ul>
+<li>* (All the files)</li>
+</ul>
+<li>Origin or origin group</li>
+<ul>
+<li>S3 origin you are using</li>
+</ul>
+<li>Cache policy</li>
+<ul>
+<li>Select the policy we just made</li>
+</ul>
+</ul>
+</ul>
+<h2>Test</h2>
+<ul>
+<li>Modify contents and upload it to S3 bucket with the same file name.</li>
+<li>Visit the website to check the update does not show up there.</li>
+<li>After one hour, visit the same page again to confirm the new contents are shown.</li>
+</ul>
+<h2>Interpretation</h2>
+<ul>
+<li>Increasing the caching duration allows users to experience better performance because the contents quickly come from the edge location and also you can reduce the load on your origin of the CloudFront distribution. But users will not see the new contents quickly.</li>
+<li>Reducing the duration means you serve users the dynamic contents. But reducing too much means you don&rsquo;t enjoy the benefits of CloudFront.</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>Updating existing content with a CloudFront distribution</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/UpdatingExistingObjects.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/UpdatingExistingObjects.html</a></li>
+</ul>
+<li>Managing how long content stays in the cache (expiration)</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html</a></li>
+</ul>
+<li>Updating a distribution</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.html</a></li>
+</ul>
+<li>Cache behavior settings</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior" target="_blank" rel="noopener">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior</a></li>
+</ul>
+</ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>center() method useful for debugging</h1>
+<h2>Idea</h2>
+<ul>
+<li>You want to print as many strings or variables as possible, because you want to debug or to check whether your program is running fine.</li>
+<li>But you think it&rsquo;s annoying to type a sequence of &lsquo;*****&rsquo; or &lsquo;-----&rsquo; to make blocks in standard output, because the length changes.</li>
+<li>Use center() to fix the length of the string and &lsquo;***&rsquo; and make a concise code.</li>
+</ul>
+<h2>Example</h2>
+<ul>
+<li>center() is a method of Python String.</li>
+<ul>
+<li>The first argument sets the output string length.</li>
+<li>The second argument sets a string which fills in the rest of the string by the length minus the Python string.</li>
+</ul>
+</ul>
+<p>print(' Test '.center(30, '*'))</p>
+<p>************ Test ************</p>
+<p>long = 'This is a long text'</p>
+<p>print(f' {long} '.center(30, '*'))</p>
+<p>**** This is a long text *****</p>
+<p>short = 'Short'</p>
+<p>print(f' {short} '.center(30, '*'))</p>
+<p>*********** Short ************</p>
+<ul>
+<li>The output is always the same length if you fix the first argument, and you don&rsquo;t have to repeat the same string in typing.</li>
+</ul>
+</body>
+</html>

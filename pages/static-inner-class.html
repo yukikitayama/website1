@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Static inner class for the main method in Java</h1>
+<h2>Issue</h2>
+<ul>
+<li>When you try to make an object of an inner class in the main method, you receive the error &ldquo;non-static variable this cannot be referenced from a static context&rdquo;.</li>
+</ul>
+<h2>Example</h2>
+<p>public class Solution {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public class SomeClass {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int someInteger;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SomeClass test = new SomeClass();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>}</p>
+<h2>Error</h2>
+<ul>
+<li>java: non-static variable this cannot be referenced from a static context</li>
+</ul>
+<h2>Solution</h2>
+<ul>
+<li>Make the inner class static by public static class SomeClass.</li>
+<ul>
+<li>An inner class contains an implicit reference to an instance of the parent class. It means that you need to make an instance of the outer class Solution in the main method.</li>
+<li>But we want to use SomeClass without making a Solution instance, so we make the inner class static in order to be able to use it without an instance.</li>
+</ul>
+</ul>
+<p>public class Solution {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public static class SomeClass {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int someInteger;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SomeClass test = new SomeClass();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>}</p>
+<h2>Resource</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/13373779/non-static-class-cannot-be-referenced-from-a-static-context" target="_blank" rel="noopener">https://stackoverflow.com/questions/13373779/non-static-class-cannot-be-referenced-from-a-static-context</a></li>
+<li><a href="https://stackoverflow.com/questions/10301907/why-do-i-get-non-static-variable-this-cannot-be-referenced-from-a-static-contex" target="_blank" rel="noopener">https://stackoverflow.com/questions/10301907/why-do-i-get-non-static-variable-this-cannot-be-referenced-from-a-static-contex</a></li>
+</ul>
+</body>
+</html>

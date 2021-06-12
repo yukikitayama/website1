@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Type hints in Python</h1>
+<h2>Idea</h2>
+<ul>
+<li>Type hints add type information of function arguments and return value.</li>
+<li>argument use &ldquo;: type&rdquo; after arguments, and return value use &ldquo;-&gt; type&rdquo; after end parenthesis and before colon.</li>
+<li>We can make a clean and documented code</li>
+<li>Introduced in Python 3.5</li>
+</ul>
+<h2>Example</h2>
+<ul>
+<li>Integer type hint.</li>
+</ul>
+<p>def func1(n: int) -&gt; int:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return n * n</p>
+<p>func1(2)</p>
+<p>4</p>
+<ul>
+<li>Even if you use something other than int and as long as Python can run, it returns and does not throw an error.</li>
+</ul>
+<p>func1(2.1)</p>
+<p>4.41</p>
+<ul>
+<li>If you use types other than built-in types, such as a list, you need to import the typing module.</li>
+</ul>
+<p>from typing import List</p>
+<p>def func2(nums: List[int]) -&gt; int:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return max(nums)</p>
+<p>func2([1, 2, 3])</p>
+<p>3</p>
+<h2>Resource</h2>
+<ul>
+<li>typing - Support for type hints</li>
+<ul>
+<li><a href="https://docs.python.org/3/library/typing.html" target="_blank" rel="noopener">https://docs.python.org/3/library/typing.html</a></li>
+</ul>
+<li>Pros and cons of type hints in Real Python</li>
+<ul>
+<li><a href="https://realpython.com/lessons/pros-and-cons-type-hints/" target="_blank" rel="noopener">https://realpython.com/lessons/pros-and-cons-type-hints/</a></li>
+</ul>
+<li>Type hinting in Real Python</li>
+<ul>
+<li><a href="https://realpython.com/lessons/type-hinting/" target="_blank" rel="noopener">https://realpython.com/lessons/type-hinting/</a></li>
+</ul>
+<li>PEP 484</li>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0484/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0484/</a></li>
+</ul>
+</ul>
+</body>
+</html>

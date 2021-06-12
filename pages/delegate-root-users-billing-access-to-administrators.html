@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Delegate root user&rsquo;s billing access to Administrators</h1>
+<h2>Idea</h2>
+<ul>
+<li>By default, only the root user can see billing in the AWS console, and other users cannot access the billing data until the root user allows them to do so.</li>
+<li>The root user needs to activate IAM user access to the Billing and Cost Management console and attach policies to the users or role.</li>
+</ul>
+<h2>Steps</h2>
+<ul>
+<li>Activate access to the Billing and Cost Management console</li>
+<ul>
+<li>Sign in to AWS console as the root user.</li>
+<li>Click account name at the top right</li>
+<li>Click My Account</li>
+<li>Click Edit next to IAM User and Role Access to Billing Information</li>
+<li>Check Activate IAM Access</li>
+<li>Click Update</li>
+</ul>
+<li>Attach policy to grant permission to billing data</li>
+<ul>
+<li>Sign in to AWS console as administrator</li>
+<li>Go to IAM</li>
+<li>Go to Policies</li>
+<li>Click Create policy</li>
+<li>Visual editor tab</li>
+<ul>
+<li>Service: Choose a service, Billing</li>
+<li>Actions: Specify the actions allowed in Billing, Check All Billing actions (aws-portal:*)</li>
+<li>Resources: No change</li>
+<li>Request conditions: No change</li>
+</ul>
+<li>Click Next: Tags</li>
+<li>Click Next: Review</li>
+<li>Name</li>
+<ul>
+<li>BillingFullAccess</li>
+</ul>
+<li>Click Create policy</li>
+<li>At Policies, search &ldquo;BillingFullAccess&rdquo;, and check it</li>
+<li>Click Policy actions, attach</li>
+<li>Check Administrators Group (or any user, role or group you want)</li>
+<li>Click Attach policy</li>
+</ul>
+</ul>
+<h2>Test</h2>
+<ul>
+<li>Sign in to AWS console as a user who is attached to the new billing policy.</li>
+<li>Go to AWS Cost Explorer</li>
+<li>If you can see billing data, it&rsquo;s successful.</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>IAM tutorial: Delegate access to the billing console</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html</a></li>
+</ul>
+<li>Overview of managing access permissions</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html</a></li>
+</ul>
+<li>Granting access to your billing information and tools in Overview of managing access permissions</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#grantaccess" target="_blank" rel="noopener">https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#grantaccess</a></li>
+</ul>
+</ul>
+</body>
+</html>
