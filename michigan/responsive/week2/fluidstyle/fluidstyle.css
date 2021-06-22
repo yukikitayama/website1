@@ -1,0 +1,60 @@
+main {
+		width: 95%;
+		margin: 0 auto;
+	}
+
+html, body {
+	background-color: #F08080;
+}
+
+@media screen and (min-width: 700px) {
+    html, body {
+        background-color: #ADD8E6;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    html, body {
+        background-color: #90EE90;
+    }
+}
+
+body {
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	color: #404040;
+}
+
+h1 {
+	font-size: 300%;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+@media screen and (min-width: 700px) {
+    .column {
+        width: 30%;
+        display: inline-block;
+        float: left;
+        margin-left: 2%;
+    }
+}
+
+/*
+@media screen and (min-width:1200px)
+{
+  .column {
+		width:30%;
+		display: inline-block;
+		float: left;
+		margin-left: 2%;
+   }
+}
+*/

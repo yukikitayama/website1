@@ -1,2 +1,5 @@
 .idea/
 env/
+boostrap/
+demo/
+py/aws-lambda/*/*.zip

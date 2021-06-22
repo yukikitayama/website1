@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<h1>Give Lambda in VPC the internet access</h1>
+<h2>Idea</h2>
+<ul>
+<li>By default, AWS Lambda has the internet access, but sometimes you may need to configure a Lambda function to connect to a VPC, for example, because the Lambda function needs to access the data in RDS. This could lose Lambda&rsquo;s internet access because VPC is isolated.</li>
+<li>Make a subnet with a NAT gateway in the VPC and configure the Lambda function to use the subnet, which allows the Lambda function to access the internet.</li>
+</ul>
+<h2>Issue</h2>
+<ul>
+    <li>If you run a Lambda function without the internet access but if it tries to access the internet, it just ends up with a timeout.</li>
+</ul>
+<h2>Subnet</h2>
+<ul>
+<li>Have or newly create 2 subnets in a VPC. One is a public subnet connected to an internet gateway. The other is a private subnet connected to a NAT gateway.</li>
+<li>The private subnet is the subnet you use in Lambda function configuration.</li>
+<li>Making new subnets could be painful in specifying IPv4 CIDR. Use <a href="https://www.adminsub.net/" target="_blank" rel="noopener">https://www.adminsub.net/</a> by considering VPC IPv4 CIDR and other subnets IPv4 CIDR.</li>
+</ul>
+<h2>NAT gateway</h2>
+<ul>
+<li>NAT gateway allows services in a private subnet to connect to outside VPC.</li>
+<li>NAT gateway uses a public subnet and connectivity type is public.</li>
+<li>In the route table, configure a private subnet to have a target to this NAT gateway.</li>
+</ul>
+<h2>Troubleshoot</h2>
+<ul>
+<li>Mistakes could happen when to use and which public or private subnet.</li>
+<ul>
+<li>public subnet</li>
+<ul>
+<li>public subnet has a target to an internet gateway.</li>
+<li>NAT gateway uses this public subnet.</li>
+</ul>
+<li>private subnet</li>
+<ul>
+<li>private subnet has a target to NAT gateway in the route table.</li>
+<li>In Lambda function configuration, use a private subnet.</li>
+</ul>
+</ul>
+<li>When the Lambda function connects to RDS, as long as the function uses the same VPC as RDS, it&rsquo;s fine. You don&rsquo;t need to use the same subnets that appear in the RDS setting.</li>
+</ul>
+<h2>Resource</h2>
+<ul>
+<li>If you watch this YouTube video, you will have a clear picture.</li>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JcRKdEP94jM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=JcRKdEP94jM</a></li>
+</ul>
+<li>How do I give internet access to a Lambda function that's connected to an Amazon VPC?</li>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/" target="_blank" rel="noopener">https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/</a></li>
+</ul>
+<li>VPC and subnet sizing for IPv4</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4" target="_blank" rel="noopener">https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4</a></li>
+</ul>
+<li>Create a subnet in your VPC</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet" target="_blank" rel="noopener">https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet</a></li>
+</ul>
+<li>CIDR Address is not within CIDR Address from VPC</li>
+<ul>
+<li><a href="https://stackoverflow.com/questions/51734945/cidr-address-is-not-within-cidr-address-from-vpc" target="_blank" rel="noopener">https://stackoverflow.com/questions/51734945/cidr-address-is-not-within-cidr-address-from-vpc</a></li>
+</ul>
+<li>Create a NAT gateway</li>
+<ul>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating" target="_blank" rel="noopener">https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating</a></li>
+</ul>
+</ul>
+</body>
+</html>

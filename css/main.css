@@ -17,6 +17,7 @@ h1 {
     margin: 0;
     font-family: "Courier New";
     font-weight: normal;
+    font-size: 300%;
     /*border: solid;*/
 }
 
@@ -29,6 +30,7 @@ nav a {
     color: #231F20;
     text-decoration: none;
     /*font-size: 5vw;*/
+    font-size: 175%;
     margin: 0 2%;
 }
 
@@ -42,8 +44,30 @@ a {
 }
 
 section {
-    padding: 5% 5%;
+    padding: 1% 5% 0% 5%;
     /*border: solid;*/
+}
+
+form {
+    /*border: solid;*/
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 0.75% 0.75%;
+    border: 1px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    /*border-radius: 5px;*/
+    outline: none;
+    font-style: italic;
+    /*border: solid;*/
+}
+
+input:focus {
+    border: 1px solid #81D8D0;
 }
 
 h2 {

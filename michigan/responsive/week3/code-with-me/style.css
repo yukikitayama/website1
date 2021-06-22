@@ -1,0 +1,22 @@
+div {
+    font-size: 140%;
+}
+
+/*every div starting with visible*/
+div[class^="visible"] {
+    border: 1px solid black;
+    margin-top: 3%;
+}
+
+div[class$=lg] {
+    color: red;
+}
+
+div[class$=md] {
+    color: blue;
+}
+
+/*every div ending with sm*/
+div[class$=sm] {
+    color: green;
+}

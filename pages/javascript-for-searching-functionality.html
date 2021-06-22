@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>JavaScript for searching functionality</h1>
+<h2>Idea</h2>
+<ul>
+<li>Suppose many items are listed by &lt;li&gt;, and you want to see only the list items which contain a certain keyword.</li>
+<li>Make an input box by &lt;input&gt;. When a user types a keyword in the input box, oninput Event executes a JavaScript function which turns on or off the list display.</li>
+</ul>
+<h2>HTML</h2>
+<p>&lt;body&gt;</p>
+<p>&lt;input type="text" id="searchInput" oninput="controlListDisplay()"&gt;</p>
+<p>&lt;ul&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;apple&lt;/li&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;orange&lt;/li&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;banana&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p>&lt;/body&gt;</p>
+<h2>JavaScript</h2>
+<p>function controlListDisplay() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;var word = document.getElementById('searchInput').value;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;word = word.toLowerCase();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;var lis = document.getElementsByTagName('LI');</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;for (i = 0; i &lt; lis.length; i++) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!lis[i].innerHTML.toLowerCase().includes(word)) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lis[i].style.display = 'none';</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lis[i].style.display = 'list-item';</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>}</p>
+<h2>Resource</h2>
+<ul>
+<li>oninput Event</li>
+<ul>
+<li><a href="https://www.w3schools.com/jsref/event_oninput.asp" target="_blank" rel="noopener">https://www.w3schools.com/jsref/event_oninput.asp</a></li>
+</ul>
+<li>CSS display property</li>
+<ul>
+<li><a href="https://www.w3schools.com/cssref/pr_class_display.asp" target="_blank" rel="noopener">https://www.w3schools.com/cssref/pr_class_display.asp</a></li>
+</ul>
+<li>oninput Event and JavaScript example</li>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/how-to-display-hidden-element-when-a-user-starts-typing-using-javascript/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/how-to-display-hidden-element-when-a-user-starts-typing-using-javascript/</a></li>
+</ul>
+<li>Get the text of an li element</li>
+<ul>
+<li><a href="https://stackoverflow.com/questions/2460706/get-the-text-of-an-li-element" target="_blank" rel="noopener">https://stackoverflow.com/questions/2460706/get-the-text-of-an-li-element</a></li>
+</ul>
+<li>JavaScript string toLowerCase() method</li>
+<ul>
+<li><a href="https://www.w3schools.com/jsref/jsref_tolowercase.asp" target="_blank" rel="noopener">https://www.w3schools.com/jsref/jsref_tolowercase.asp</a></li>
+</ul>
+<li>JavaScript String includes() method</li>
+<ul>
+<li><a href="https://www.w3schools.com/jsref/jsref_includes.asp" target="_blank" rel="noopener">https://www.w3schools.com/jsref/jsref_includes.asp</a></li>
+</ul>
+</ul>
+</body>
+</html>
