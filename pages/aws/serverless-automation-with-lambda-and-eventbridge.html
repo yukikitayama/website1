@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Yuki Kitayama">
+  <!-- Bootstrap 5 jsDelivr -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- Font Awesome kit's code -->
+  <script src="https://kit.fontawesome.com/5a2ca6d0d2.js" crossorigin="anonymous"></script>
+  <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../../css/blog.css" rel="stylesheet">
+  <!-- My CSS -->
+  <!-- <link href="../css/pages.css" rel="stylesheet"> -->
+  <title>Serverless automation with AWS</title>
+</head>
+
+<body>
+
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+<!--                <a class="link-secondary" href="#">Subscribe</a>-->
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">Yuki Kitayama</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+<!--                <a class="link-secondary" href="#" aria-label="Search">-->
+<!--                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>-->
+<!--                </a>-->
+<!--                <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>-->
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 link-secondary" href="../../index.html">Home</a>
+            <a class="p-2 link-secondary" href="#website">Website</a>
+            <a class="p-2 link-secondary" href="#aws">AWS</a>
+            <a class="p-2 link-secondary" href="#">Google Cloud</a>
+            <a class="p-2 link-secondary" href="#python">Python</a>
+            <a class="p-2 link-secondary" href="#java">Java</a>
+            <a class="p-2 link-secondary" href="#algorithm">Algorithm</a>
+            <a class="p-2 link-secondary" href="#video">Video</a>
+        </nav>
+    </div>
+</div>
+
+<main class="container">
+  <div class="row g-5">
+    <div class="col-md-8">
+      <article class="blog-post">
+        <h2 class="blog-post-title">Serverless automation with Lambda and EventBridge</h2>
+        <p class="blog-post-meta">June 22, 2021</p>
+        <hr>
+        <h2>Idea</h2>
+        <ul>
+          <li>Automation can be done easily and cheaply.</li>
+          <li>Serverless means you only need to upload a program and set a schedule, and AWS takes care of maintaining the system running your program.</li>
+          <li>Lambda is for you to upload program that you want to run, and EventBridge is to set schedule running the program</li>
+        </ul>
+        <h2>Lambda</h2>
+        <ul>
+          <li>Upload Python program and Python packages together in a zip file</li>
+        </ul>
+        <h2>EventBridge</h2>
+        <ul>
+          <li>EventBridge can trigger AWS Lambda by rule type: schedule expression in cron style.</li>
+          <li>Go to EventBridge, Create rule</li>
+          <li>Define pattern</li>
+          <ul>
+            <li>Schedule</li>
+          </ul>
+          <li>Select event bus</li>
+          <ul>
+            <li>AWS default event bus</li>
+          </ul>
+          <li>Select targets</li>
+          <ul>
+            <li>Target: Lambda function</li>
+            <li>Function: Select your function</li>
+          </ul>
+        </ul>
+        <h2>Cost</h2>
+        <ul>
+          <li>Lambda</li>
+          <ul>
+            <li>How many times you run a function</li>
+            <li>How long the function takes</li>
+            <li>How much memory is allocated to the function</li>
+          </ul>
+          <li>EventBridge</li>
+          <ul>
+            <li>It&rsquo;s free for EventBridge to trigger Lambda</li>
+          </ul>
+          <li>Example</li>
+          <ul>
+            <li>Automating a Lambda function which runs daily, and spends 1 minute and 1GB memory is $0.03 per month.</li>
+          </ul>
+        </ul>
+        <h2>Cron expression</h2>
+        <ul>
+          <li>The cron expression of AWS EventBridge is a bit different from Linux cron job expression.</li>
+          <li>e.g. every 5 minutes</li>
+          <ul>
+            <li>EventBridge: cron(0/5 * * * ? *)</li>
+            <li>Linux cron job: */5 * * * *</li>
+          </ul>
+        </ul>
+        <h2>Resource</h2>
+        <ul>
+          <li>Tutorial: Schedule AWS Lambda functions using EventBridge</li>
+          <ul>
+            <li><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-run-lambda-schedule.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-run-lambda-schedule.html</a></li>
+          </ul>
+          <li>EventBridge cron expression</li>
+          <ul>
+            <li><a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions" target="_blank" rel="noopener">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions</a></li>
+          </ul>
+          <li>AWS Lambda pricing</li>
+          <ul>
+            <li><a href="https://aws.amazon.com/lambda/pricing/" target="_blank" rel="noopener">https://aws.amazon.com/lambda/pricing/</a></li>
+          </ul>
+          <li>AWS EventBridge pricing</li>
+          <ul>
+            <li><a href="https://aws.amazon.com/eventbridge/pricing/" target="_blank" rel="noopener">https://aws.amazon.com/eventbridge/pricing/</a></li>
+          </ul>
+          <li>AWS EventBridge pricing for cron events</li>
+          <ul>
+            <li><a href="https://stackoverflow.com/questions/59022523/aws-eventbridge-pricing-for-cron-events" target="_blank" rel="noopener">https://stackoverflow.com/questions/59022523/aws-eventbridge-pricing-for-cron-events</a></li>
+          </ul>
+        </ul>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">XXX.</p>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Archives</h4>
+          <ol class="list-unstyled mb-0">
+            <li><a href="#">MM YYYY</a></li>
+            <li><a href="#">MM YYYY</a></li>
+          </ol>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="https://www.linkedin.com/in/yukikitayama/" target="_blank"><i class="fab fa-linkedin fa-lg" style="color: #0a66c2;"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCF5zMl6jTJaHpyxLj66FAXw" target="_blank"><i class="fab fa-youtube fa-lg" style="color: #ff0000;"></i></a></li>
+            <li><a href="https://github.com/yukikitayama" target="_blank"><i class="fab fa-github fa-lg" style="color: #000000;"></i></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="blog-footer">
+  <p><small>&copy; Yuki Kitayama</small></p>
+  <p><a href="">Back to top</a></p>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
